@@ -1,5 +1,6 @@
 Release 5.2.1 (Not yet released)
 -------------
+ * No longer attempts to open `/proc/self/` on macOS.
 
 
 Release 5.2.0

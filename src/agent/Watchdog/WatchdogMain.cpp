@@ -791,7 +791,9 @@ initializeBareEssentials(int argc, char *argv[], WorkingObjectsPtr &wo) {
 	 * for this watchdog. Note that the OOM score is inherited by child processes
 	 * so we need to restore it after each fork().
 	 */
+#if !BOOST_OS_MACOS
 	string oldOomScore = setOomScoreNeverKill();
+#endif
 
 	watchdogSchema = new Schema();
 	watchdogConfig = new ConfigKit::Store(*watchdogSchema);
@@ -802,9 +804,11 @@ initializeBareEssentials(int argc, char *argv[], WorkingObjectsPtr &wo) {
 	// Start all sub-agents with this environment variable.
 	setenv("PASSENGER_USE_FEEDBACK_FD", "true", 1);
 
+#if !BOOST_OS_MACOS
 	wo = boost::make_shared<WorkingObjects>();
 	workingObjects = wo.get();
 	wo->extraConfigToPassToSubAgents["oom_score"] = oldOomScore;
+#endif
 }
 
 static void
