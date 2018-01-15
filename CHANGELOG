@@ -1,5 +1,6 @@
 Release 5.2.1 (Not yet released)
 -------------
+ * Fixed a compilation regression (from 5.1.9) on some platforms by explicitly using the stl queue. Closes GH-2016.
 
 
 Release 5.2.0
