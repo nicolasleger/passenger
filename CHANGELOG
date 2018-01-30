@@ -1,6 +1,8 @@
 Release 5.2.1 (Not yet released)
 -------------
  * No longer attempts to open `/proc/self/` on macOS.
+ * No longer uses Security Framework on macOS 10.13+.
+ * Warns if using an incompatible compiler on macOS < 10.13. Closes GH-2017.
 
 
 Release 5.2.0
