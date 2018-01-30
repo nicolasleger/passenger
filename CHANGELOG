@@ -1,6 +1,8 @@
 Release 5.2.1 (Not yet released)
 -------------
 
+ * Fixes setting the max pool idle time to 0. Closes GH-2020.
+
 
 Release 5.2.0
 -------------
